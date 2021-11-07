@@ -7,11 +7,6 @@ import 'package:flutter_widgets/src/animated_stream_list/diff_applier.dart';
 import 'package:flutter_widgets/src/animated_stream_list/list_controller.dart';
 import 'package:flutter_widgets/src/animated_stream_list/myers_diff.dart';
 
-Widget itemRemovedBuilder(
-    BuildContext context, int element, int index, Animation<double> animation) {
-  return Container();
-}
-
 main() {
   test("check if handles bigger list", () async {
     final list1 = [1, 2, 3, 4];
@@ -20,7 +15,7 @@ main() {
     final controller = ListController<int>(
       items: list1,
       key: MockKey(),
-      itemRemovedBuilder: itemRemovedBuilder,
+      itemRemovedBuilder: _itemRemovedBuilder,
       duration: const Duration(milliseconds: 300),
     );
 
@@ -37,7 +32,7 @@ main() {
     final controller = ListController<int>(
       items: list1,
       key: MockKey(),
-      itemRemovedBuilder: itemRemovedBuilder,
+      itemRemovedBuilder: _itemRemovedBuilder,
       duration: const Duration(milliseconds: 300),
     );
 
@@ -54,7 +49,7 @@ main() {
     final controller = ListController<int>(
       items: list1,
       key: MockKey(),
-      itemRemovedBuilder: itemRemovedBuilder,
+      itemRemovedBuilder: _itemRemovedBuilder,
       duration: const Duration(milliseconds: 300),
     );
 
@@ -71,7 +66,7 @@ main() {
     final controller = ListController<int>(
       items: list1,
       key: MockKey(),
-      itemRemovedBuilder: itemRemovedBuilder,
+      itemRemovedBuilder: _itemRemovedBuilder,
       duration: const Duration(milliseconds: 300),
     );
 
@@ -89,7 +84,7 @@ main() {
     final controller = ListController<int>(
       items: list1,
       key: MockKey(),
-      itemRemovedBuilder: itemRemovedBuilder,
+      itemRemovedBuilder: _itemRemovedBuilder,
       duration: const Duration(milliseconds: 300),
     );
 
@@ -104,7 +99,7 @@ main() {
       final controller = ListController<int>(
         items: list1,
         key: MockKey(),
-        itemRemovedBuilder: itemRemovedBuilder,
+        itemRemovedBuilder: _itemRemovedBuilder,
         duration: const Duration(milliseconds: 300),
       );
 
@@ -121,7 +116,7 @@ main() {
       final controller = ListController<int>(
         items: list1,
         key: MockKey(),
-        itemRemovedBuilder: itemRemovedBuilder,
+        itemRemovedBuilder: _itemRemovedBuilder,
         duration: const Duration(milliseconds: 300),
       );
 
@@ -145,4 +140,9 @@ class MockList extends Mock implements AnimatedListState {
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.debug}) {
     return super.toString();
   }
+}
+
+Widget _itemRemovedBuilder(
+    BuildContext context, int element, int index, Animation<double> animation) {
+  return Container();
 }
