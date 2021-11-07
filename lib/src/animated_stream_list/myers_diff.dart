@@ -8,7 +8,7 @@ typedef Equalizer = bool Function(dynamic item1, dynamic item2);
 class DiffUtil<E> {
   static Equalizer? eq;
 
-  Future<List<Diff>> calculateDiff(List<E> oldList, List<E> newList, {Equalizer? equalizer}) {
+  Future<List<Diff>> calculateDiff(List<E>? oldList, List<E>? newList, {Equalizer? equalizer}) {
     eq = equalizer;
     final args = _DiffArguments<E>(oldList, newList);
     return compute(_myersDiff, args);
